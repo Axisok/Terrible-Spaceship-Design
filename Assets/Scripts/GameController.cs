@@ -101,7 +101,7 @@ public class GameController: MonoBehaviour {
 		go.transform.localScale = new Vector3(1 + rock.split, 1 + rock.split, 1f);
 
 		rb.mass = 10 * (rock.split + 1);
-		rb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Random.Range(0f, difficulty / 10f), ForceMode2D.Impulse);
+		rb.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * Random.Range(1f, difficulty / 4f), ForceMode2D.Impulse);
 		rb.AddTorque(Random.Range(-5f, 5f), ForceMode2D.Impulse);
 
 		rocks ++;
@@ -117,7 +117,7 @@ public class GameController: MonoBehaviour {
 		} while (((Vector2)pilot.transform.position - pos).sqrMagnitude < 36f);
 		float rot = Random.Range(0f, 360f);
 
-		GameObject go = Instantiate(powerupPrefabs[Random.Range(0, powerupPrefabs.Length)], new Vector3(pos.x, pos.y, 0f), Quaternion.Euler(0f, 0f, rot));
+		GameObject go = Instantiate(powerupPrefabs[Random.Range(0, powerupPrefabs.Length)], new Vector3(pos.x, pos.y, -2f), Quaternion.Euler(0f, 0f, rot));
 		Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
 
 		Powerup powerup = go.GetComponent<Powerup>();
@@ -125,7 +125,7 @@ public class GameController: MonoBehaviour {
 		powerup.gc = this;
 		powerup.pilot = pilot.GetComponent<Pilot>();
 		powerup.health = 10f + difficulty;
-		powerup.bounce = (int)(Random.Range(0, 50) / 50);
+		powerup.bounce = (int)(Random.Range(0, 51) / 50);
 		powerup.damage = Random.Range(0f, .5f) * difficulty;
 		powerup.cooldown = -Random.Range(0f, .0025f) * difficulty;
 

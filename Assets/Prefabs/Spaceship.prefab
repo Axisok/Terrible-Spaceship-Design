@@ -264,7 +264,7 @@ MonoBehaviour:
   deathSounds:
   - {fileID: 8300000, guid: 77ed1c261ba651a44a9ac22f788613e3, type: 3}
   health: 100
-  drainSpeed: 1
+  drainSpeed: 1.5
   shootingCooldown: 1
   shootingImpulse: 25
   bounce: 0
